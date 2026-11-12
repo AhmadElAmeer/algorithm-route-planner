@@ -140,7 +140,7 @@ What the numbers show:
 ## Testing
 
 ```bash
-python3 -m pytest -q        # 67 tests
+python3 -m pytest -q        # 68 tests
 ```
 
 - **Against a reference:** on 25 random directed graphs with parallel edges, self-loops and unreachable pairs, every algorithm's answer for **every source–target pair** is compared with Floyd–Warshall. That reference is a deliberately different O(n³) algorithm. The returned route is also re-costed edge by edge to confirm it matches the reported travel time.

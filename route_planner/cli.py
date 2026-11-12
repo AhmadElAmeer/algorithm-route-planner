@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+from pathlib import Path
 
 from .bench import ResultMismatch, format_table, random_queries, run_benchmark
 from .generate import generate_city
@@ -27,7 +28,12 @@ def _load(path: str) -> Graph:
 
 def cmd_generate(a) -> int:
     g, edges = generate_city(a.size, a.seed, arterial_kmh=a.arterial_kmh)
-    g.save(a.output, edges)
+    out = Path(a.output)
+    try:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        g.save(out, edges)
+    except OSError as exc:
+        sys.exit(f"error: cannot write {out}: {exc.strerror}")
     print(f"wrote {a.output}: {g.num_nodes} nodes, {g.num_edges} directed edges")
     return 0
 

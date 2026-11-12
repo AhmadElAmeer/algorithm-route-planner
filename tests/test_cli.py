@@ -46,3 +46,9 @@ def test_plot_writes_png(city, tmp_path):
     out = tmp_path / "search.png"
     assert main(["plot", city, "0", "399", "-o", str(out)]) == 0
     assert out.read_bytes()[:8] == b"\x89PNG\r\n\x1a\n"
+
+
+def test_generate_creates_missing_output_directory(tmp_path):
+    out = tmp_path / "data" / "nested" / "city.graph"
+    assert main(["generate", "--size", "5", "-o", str(out)]) == 0
+    assert out.exists()
