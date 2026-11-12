@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "route-planner"
+version = "0.1.0"
+description = "Dijkstra vs A* vs bidirectional Dijkstra on a generated road network"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Ahmad Kaiss"}]
+dependencies = []
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.5"]
+test = ["pytest>=7"]
+
+[tool.setuptools]
+packages = ["route_planner"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
