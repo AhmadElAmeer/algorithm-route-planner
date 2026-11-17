@@ -1,5 +1,7 @@
 # algorithm-route-planner
 
+[![CI](https://github.com/AhmadElAmeer/algorithm-route-planner/actions/workflows/ci.yml/badge.svg)](https://github.com/AhmadElAmeer/algorithm-route-planner/actions/workflows/ci.yml)
+
 Fastest-route search on a road network, implemented three ways (Dijkstra, A*, bidirectional Dijkstra) and benchmarked on the same queries, to measure how much work each one saves.
 
 ![Nodes settled by each algorithm for the same query](docs/search-areas.png)
